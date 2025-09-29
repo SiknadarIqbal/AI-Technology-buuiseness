@@ -11,7 +11,6 @@ function animateCounter(element, target, suffix = "", duration = 2000) {
     element.textContent = formatNumber(Math.floor(start)) + suffix;
   }, 16);
 }
-
 function formatNumber(num) {
   if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
   if (num >= 1000) return (num / 1000).toFixed(0) + "k";
@@ -28,7 +27,6 @@ window.onload = () => {
 };
 
 // sliddder
-
 const slider = document.getElementById("slider");
 const nextBtn = document.getElementById("nextBtn");
 
@@ -36,6 +34,28 @@ let translateX = 0;
 
 nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  translateX -= 150; // move left by 150px
+  translateX -= 50; 
   slider.style.transform = `translateX(${translateX}px)`;
 });
+
+
+// toggle menu
+
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+
+  toggleBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+
+  // for scroller
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+
